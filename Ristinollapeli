@@ -1,0 +1,510 @@
+import time
+import sys
+
+
+SALLITUT_MERKIT = "X", "x", "0"
+
+global onko_lopetus
+global x_vai_0_vuoro
+global ruutu1_käytetty123, ruutu2_käytetty123, ruutu3_käytetty123, ruutu4_käytetty123
+global ruutu6_käytetty123, ruutu7_käytetty123, ruutu8_käytetty123, ruutu9_käytetty123
+global ruutu5_käytetty123, x_vai_0_vuoro_joovaiei
+global ruutu1, ruutu2, ruutu3, ruutu4, ruutu5, ruutu6, ruutu7, ruutu8, ruutu9
+
+onko_lopetus = False
+
+x_vai_0_vuoro = "x"
+
+x_vai_0_vuoro_joovaiei = False
+
+ruutu1 = ("| ", "|0", "|X")
+ruutu1_käytetty123 = "1"
+
+ruutu2 = ("| |", "|0|", "|X|")
+ruutu2_käytetty123 = "1"
+
+ruutu3 = (" |", "0|", "X|")
+ruutu3_käytetty123 = "1"
+
+ruutu4 = ("| ", "|0", "|X")
+ruutu4_käytetty123 = "1"
+
+ruutu5 = ("| |", "|0|", "|X|")
+ruutu5_käytetty123 = "1"
+
+ruutu6 = (" |", "0|", "X|")
+ruutu6_käytetty123 = "1"
+
+ruutu7 = ("| ", "|0", "|X")
+ruutu7_käytetty123 = "1"
+
+ruutu8 = ("| |", "|0|", "|X|")
+ruutu8_käytetty123 = "1"
+
+ruutu9 = (" |", "0|", "X|")
+ruutu9_käytetty123 = "1"
+
+
+
+
+def aloitus():
+  print("Tervetuloa Pelaamaan Ristinollaa!")
+
+  print("")
+  time.sleep(0.2)
+
+  print("Peliruutu tulee näyttämään tältä:")
+
+  time.sleep(0.2)
+  print("")
+
+  print("| | | |")
+  print("| | | |")
+  print("| | | |")
+
+  print("")
+  time.sleep(0.2)
+
+  print("Jokaisella ruudulla on oma numeronsa, johon voit asettaa oman ")
+  print("pelimerkkisi omalla vuorollasi painamalla numeroita 0-9.")
+  print("")
+  time.sleep(0.2)
+
+  print("|1|2|3|")
+  print("|4|5|6|")
+  print("|7|8|9|")
+
+  print("")
+
+def pelimerkki():
+  while True:
+    X_vai_0 = input("Voit valita, haluatko olla Risti(X), vai Nolla(0)")
+    if X_vai_0 in SALLITUT_MERKIT:
+      time.sleep(0.2)
+      print("")
+      print(f"Valitsit {X_vai_0}")
+      print("")
+      return X_vai_0
+    else:
+      time.sleep(0.2)
+      print("Valitsemasi merkki ei ole Risti(X) tai Nolla(0)")
+      time.sleep(0.2)
+
+def pelikaveri():
+  while True:
+    print("Voit pelata yksin bottia vastaan, tai ottaa kaverin kanssa 1v1")
+    print("")
+    yksi_vai_kaksi = input("Pelaa bottia vastaan(B) vai pelaa 1v1 kaveria vastaan(K)").lower()
+    print("")
+    if yksi_vai_kaksi in ["b", "k"]:
+      if yksi_vai_kaksi == "b":
+        print("Bottia ei ole vielä olemassa. Valitsit kaverin(K)")
+        print("")
+        yksi_vai_kaksi = "kaverin"
+        return yksi_vai_kaksi
+      else:
+        print("Valitsit pelata kaverin kanssa 1v1")
+        print("")
+        yksi_vai_kaksi = "kaverin"
+      return yksi_vai_kaksi
+    else:
+      time.sleep(0.2)
+      print("Valitsemasi merkki ei ole botti(B), eikä kaveri(K)")
+      print("")
+      time.sleep(0.2)
+
+def pelilauta():
+
+  time.sleep(0.2)
+
+  global x_vai_0_vuoro
+  global onko_lopetus
+  global ruutu1_käytetty123, ruutu2_käytetty123, ruutu3_käytetty123, ruutu4_käytetty123
+  global ruutu6_käytetty123, ruutu7_käytetty123, ruutu8_käytetty123, ruutu9_käytetty123
+  global ruutu5_käytetty123, x_vai_0_vuoro_joovaiei
+
+  print("")
+  
+  if ruutu1_käytetty123 == "1":
+    print(ruutu1[0], end="")
+  if ruutu1_käytetty123 == "2":
+    print(ruutu1[1], end="")
+  if ruutu1_käytetty123 == "3":
+    print(ruutu1[2], end="")
+
+  
+  if ruutu2_käytetty123 == "1":
+    print(ruutu2[0], end="")
+  if ruutu2_käytetty123 == "2":
+    print(ruutu2[1], end="")
+  if ruutu2_käytetty123 == "3":
+    print(ruutu2[2], end="")
+
+  
+  if ruutu3_käytetty123 == "1":
+    print(ruutu3[0])
+  if ruutu3_käytetty123 == "2":
+    print(ruutu3[1])
+  if ruutu3_käytetty123 == "3":
+    print(ruutu3[2])
+
+  
+  if ruutu4_käytetty123 == "1":
+    print(ruutu4[0], end="")
+  if ruutu4_käytetty123 == "2":
+    print(ruutu4[1], end="")
+  if ruutu4_käytetty123 == "3":
+    print(ruutu4[2], end="")
+
+  
+  if ruutu5_käytetty123 == "1":
+    print(ruutu5[0], end="")
+  if ruutu5_käytetty123 == "2":
+    print(ruutu5[1], end="")
+  if ruutu5_käytetty123 == "3":
+    print(ruutu5[2], end="")
+
+  
+  if ruutu6_käytetty123 == "1":
+    print(ruutu6[0])
+  if ruutu6_käytetty123 == "2":
+    print(ruutu6[1])
+  if ruutu6_käytetty123 == "3":
+    print(ruutu6[2])
+
+  
+  if ruutu7_käytetty123 == "1":
+    print(ruutu7[0], end="")
+  if ruutu7_käytetty123 == "2":
+    print(ruutu7[1], end="")
+  if ruutu7_käytetty123 == "3":
+    print(ruutu7[2], end="")
+
+  
+  if ruutu8_käytetty123 == "1":
+    print(ruutu8[0], end="")
+  if ruutu8_käytetty123 == "2":
+    print(ruutu8[1], end="")
+  if ruutu8_käytetty123 == "3":
+    print(ruutu8[2], end="")
+
+  
+  if ruutu9_käytetty123 == "1":
+    print(ruutu9[0])
+  if ruutu9_käytetty123 == "2":
+    print(ruutu9[1])
+  if ruutu9_käytetty123 == "3":
+    print(ruutu9[2])
+
+  print("")
+
+  if onko_lopetus == True:
+    lopetus()
+  else:
+    pelisiirrot()
+
+def pelisiirrot():
+
+  global onko_lopetus
+  global mikä_voittaa
+  global x_vai_0_vuoro
+  global ruutu1_käytetty123, ruutu2_käytetty123, ruutu3_käytetty123, ruutu4_käytetty123
+  global ruutu6_käytetty123, ruutu7_käytetty123, ruutu8_käytetty123, ruutu9_käytetty123
+  global ruutu5_käytetty123, x_vai_0_vuoro_joovaiei
+  
+  print(f"{x_vai_0_vuoro} vuoro")
+  print("")
+  
+  mihin_haluat_laittaa = input("Mihin ruutuun haluat sijoittaa (ruudut 0-9)")
+  print("")
+  
+  if mihin_haluat_laittaa.isdigit() and 0 <= int(mihin_haluat_laittaa) <= 9:
+
+    if ruutu1_käytetty123 != "1":
+      print("Tämä ruutu on jo käytössä")
+      print("")
+
+    
+    if mihin_haluat_laittaa == "1":
+      if ruutu1_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+           x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+           x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+           ruutu1_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+           ruutu1_käytetty123 = "2"
+
+    if mihin_haluat_laittaa == "2":
+      if ruutu2_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+           x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+           x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+           ruutu2_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+           ruutu2_käytetty123 = "2"
+
+    if mihin_haluat_laittaa == "3":
+      if ruutu3_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+           x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+           x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+            ruutu3_käytetty123 = "3"
+        elif x_vai_0_vuoro == "0":
+            ruutu3_käytetty123 = "2"
+  
+    if mihin_haluat_laittaa == "4":
+      if ruutu4_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+           x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+           x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+           ruutu4_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+           ruutu4_käytetty123 = "2"
+
+    if mihin_haluat_laittaa == "5":
+      if ruutu5_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+           x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+           x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+           ruutu5_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+           ruutu5_käytetty123 = "2"
+  
+    if mihin_haluat_laittaa == "6":
+      if ruutu6_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+          x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+          x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+          ruutu6_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+          ruutu6_käytetty123 = "2"
+
+    if mihin_haluat_laittaa == "7":
+      if ruutu7_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+          x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+          x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+          ruutu7_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+          ruutu7_käytetty123 = "2"
+
+    if mihin_haluat_laittaa == "8":
+      if ruutu8_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+          x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+          x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+          ruutu8_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+          ruutu8_käytetty123 = "2"
+
+    if mihin_haluat_laittaa == "9":
+      if ruutu9_käytetty123 != "1":
+        time.sleep(0.2)
+        print("Tämä ruutu on jo käytössä")
+        print("")
+        if x_vai_0_vuoro == "x":
+          x_vai_0_vuoro = "0"
+        elif x_vai_0_vuoro == "0":
+          x_vai_0_vuoro = "x"
+      else:
+        if x_vai_0_vuoro == "x":
+          ruutu9_käytetty123 = "3"
+        if x_vai_0_vuoro == "0":
+          ruutu9_käytetty123 = "2"
+
+    if x_vai_0_vuoro == "x":
+      x_vai_0_vuoro = "0"
+  
+    elif x_vai_0_vuoro == "0":
+      x_vai_0_vuoro = "x"
+
+    x_vai_sejuttu()
+
+  else:
+    print("Tämä ei ole luku 0-9")
+    pelisiirrot()
+
+def x_vai_sejuttu():
+  global x_vai_0_vuoro, x_vai_0_vuoro_joovaiei
+
+  if not x_vai_0_vuoro_joovaiei:
+      x_vai_0_vuoro = "x"
+      x_vai_0_vuoro_joovaiei = True
+      x_vai_sejuttu()
+  else:
+      tarkastus()
+      onko_lauta_täynnä()
+      pelilauta()
+
+def onko_lauta_täynnä():
+
+  global ruutu1_käytetty123, ruutu2_käytetty123, ruutu3_käytetty123, ruutu4_käytetty123
+  global ruutu6_käytetty123, ruutu7_käytetty123, ruutu8_käytetty123, ruutu9_käytetty123
+  global ruutu5_käytetty123
+  
+  if ruutu1_käytetty123 != "1" and ruutu2_käytetty123 != "1" and ruutu3_käytetty123 != "1" and ruutu4_käytetty123 != "1 " and ruutu5_käytetty123 != "1" and ruutu6_käytetty123 != "1" and ruutu7_käytetty123 != "1" and ruutu8_käytetty123 != "1" and ruutu9_käytetty123 != "1":
+    print("Tasapeli!")
+    time.sleep(0.2)
+    sys.exit()
+
+def tarkastus():
+  global mikä_voittaa
+  global onko_lopetus
+  mikä_voittaa = ""
+
+  
+  if ruutu1_käytetty123 == ruutu2_käytetty123 == ruutu3_käytetty123 and ruutu1_käytetty123 != "1":
+    
+    if ruutu1_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu1_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+
+  elif ruutu4_käytetty123 == ruutu5_käytetty123 == ruutu6_käytetty123 and ruutu4_käytetty123 != "1":
+
+    if ruutu4_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu4_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+
+  elif ruutu7_käytetty123 == ruutu8_käytetty123 == ruutu9_käytetty123 and ruutu7_käytetty123 != "1":
+
+
+    if ruutu7_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu7_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+    
+  elif ruutu1_käytetty123 == ruutu4_käytetty123 == ruutu7_käytetty123 and ruutu1_käytetty123 != "1":
+
+    if ruutu1_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu1_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+
+  elif ruutu2_käytetty123 == ruutu5_käytetty123 == ruutu8_käytetty123 and ruutu2_käytetty123 != "1":
+
+    if ruutu2_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu2_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+
+  elif ruutu3_käytetty123 == ruutu6_käytetty123 == ruutu9_käytetty123 and ruutu3_käytetty123 != "1":
+
+    if ruutu3_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu3_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+    
+  elif ruutu1_käytetty123 == ruutu5_käytetty123 == ruutu9_käytetty123 and ruutu1_käytetty123 != "1":
+
+    if ruutu1_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu1_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+
+  elif ruutu3_käytetty123 == ruutu4_käytetty123 == ruutu7_käytetty123 and ruutu3_käytetty123 != "1":
+  
+    if ruutu3_käytetty123 == "2":
+      mikä_voittaa = "0:alla"
+    if ruutu3_käytetty123 == "3":
+      mikä_voittaa = "X:ällä"
+    print(f"{mikä_voittaa} on kolmen suora!!!")
+    onko_lopetus = True
+    pelilauta()
+  
+def lopetus():
+  global voittaja
+  global onko_lopetus
+  global mikä_voittaa
+  voittaja = ""
+  if mikä_voittaa == "X:ällä":
+    voittaja = "X"
+
+  if mikä_voittaa == "0:alla":
+    voittaja = "0"
+
+  print("")
+  print(f"Voittaja on {voittaja}! Onneksi olkoon!")
+  sys.exit()
+
+def main():
+  print()
+  aloitus()
+  time.sleep(0.2)
+  pelaajan_merkki = pelimerkki()
+  kuka_pelaa = pelikaveri()
+  print(f"pelimerkkisi on {pelaajan_merkki} ja pelaat {kuka_pelaa} kanssa")
+  x_vai_sejuttu()
+
+    
+main()
